@@ -1,0 +1,233 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Vennora Nuisibles — design tokens
+   Charte : vert forêt #2E4A32 · vert lime #6E9A2E · lin #F7F9F2
+   Les couleurs sémantiques (gravité, statut) sont communes à toutes les
+   applications Vennora : elles disent « attention » ou « terminé », pas la
+   marque. Seules la couleur mère, l'accent et la teinte du papier changent.
+--------------------------------------------------------------------------- */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Marque */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-subtle: var(--brand-subtle);
+
+  /* Sémantique métier */
+  --color-severity-info: var(--severity-info);
+  --color-severity-low: var(--severity-low);
+  --color-severity-medium: var(--severity-medium);
+  --color-severity-high: var(--severity-high);
+  --color-severity-critical: var(--severity-critical);
+
+  --color-status-planned: var(--status-planned);
+  --color-status-progress: var(--status-progress);
+  --color-status-done: var(--status-done);
+  --color-status-cancelled: var(--status-cancelled);
+
+  /* Métiers (verticaux) */
+  --color-trade-ramonage: #2e2a28;
+  --color-trade-chauffage: #e2610f;
+  --color-trade-climatisation: #4fa8c7;
+  --color-trade-incendie: #c8102e;
+  --color-trade-serrurier: #b08d3a;
+  --color-trade-portes: #7d8a93;
+  --color-trade-cuisine: #c9a227;
+  --color-trade-piscine: #00a0a8;
+  --color-trade-nuisibles: #4f7b45;
+  --color-trade-eau: #1e7fb8;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --background: #f7f9f2;
+  --foreground: #1b2718;
+
+  --card: #ffffff;
+  --card-foreground: #1b2718;
+  --popover: #ffffff;
+  --popover-foreground: #1b2718;
+
+  --primary: #2e4a32;
+  --primary-foreground: #f4f9f1;
+
+  --secondary: #e9f0df;
+  --secondary-foreground: #2e4a32;
+
+  --muted: #e9f0df;
+  --muted-foreground: #6b7565;
+
+  --accent: #dceace;
+  --accent-foreground: #2e4a32;
+
+  --destructive: #c8102e;
+  --destructive-foreground: #fff5f6;
+
+  --border: #e0e9d5;
+  --input: #c8d7b9;
+  --ring: #2e4a32;
+
+  --brand: #6e9a2e;
+  --brand-foreground: #ffffff;
+  --brand-subtle: #eef6e0;
+
+  --severity-info: #6b7565;
+  --severity-low: #4f7b45;
+  --severity-medium: #c9a227;
+  --severity-high: #e2610f;
+  --severity-critical: #c8102e;
+
+  --status-planned: #6b7565;
+  --status-progress: #6e9a2e;
+  --status-done: #4f7b45;
+  --status-cancelled: #a8a29a;
+
+  --sidebar: #2e4a32;
+  --sidebar-foreground: #d5e3cd;
+  --sidebar-primary: #6e9a2e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #3a5a3d;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #446749;
+  --sidebar-ring: #6e9a2e;
+}
+
+.dark {
+  --background: #101a11;
+  --foreground: #e5ebe1;
+
+  --card: #17251a;
+  --card-foreground: #e5ebe1;
+  --popover: #17251a;
+  --popover-foreground: #e5ebe1;
+
+  --primary: #86b957;
+  --primary-foreground: #0c150c;
+
+  --secondary: #1f2f21;
+  --secondary-foreground: #e5ebe1;
+
+  --muted: #1f2f21;
+  --muted-foreground: #9aa894;
+
+  --accent: #263826;
+  --accent-foreground: #e5ebe1;
+
+  --destructive: #e2495f;
+  --destructive-foreground: #1a0508;
+
+  --border: #ffffff1a;
+  --input: #ffffff26;
+  --ring: #86b957;
+
+  --brand: #92c247;
+  --brand-foreground: #0d1607;
+  --brand-subtle: #1d2a12;
+
+  --severity-info: #9aa894;
+  --severity-low: #6fa163;
+  --severity-medium: #d9b73f;
+  --severity-high: #ef7a30;
+  --severity-critical: #e2495f;
+
+  --status-planned: #9aa894;
+  --status-progress: #92c247;
+  --status-done: #6fa163;
+  --status-cancelled: #5c6a70;
+
+  --sidebar: #0b120c;
+  --sidebar-foreground: #c3d2bc;
+  --sidebar-primary: #92c247;
+  --sidebar-primary-foreground: #0d1607;
+  --sidebar-accent: #1a291c;
+  --sidebar-accent-foreground: #e5ebe1;
+  --sidebar-border: #ffffff14;
+  --sidebar-ring: #92c247;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+  }
+  /* Titres : un peu plus resserrés que le défaut, ton « outil de travail ». */
+  h1,
+  h2,
+  h3 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  /* Zone tactile confortable pour l'app technicien (gants, extérieur). */
+  .touch-target {
+    @apply min-h-12 min-w-12;
+  }
+  /* Respecte l'encoche / la barre gestuelle iOS en PWA plein écran. */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Le planning et les tableaux larges défilent dans leur conteneur,
+   jamais la page entière. */
+@media (max-width: 768px) {
+  body {
+    overscroll-behavior-y: contain;
+  }
+}

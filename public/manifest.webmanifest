@@ -1,0 +1,49 @@
+{
+  "name": "Vennora Nuisibles",
+  "short_name": "Vennora Nuisibles",
+  "description": "Gérez vos interventions. Maîtrisez vos équipements.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#2E4A32",
+  "theme_color": "#2E4A32",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/icons/vennora.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/vennora.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ma journée",
+      "short_name": "Journée",
+      "url": "/"
+    },
+    {
+      "name": "Scanner un équipement",
+      "short_name": "Scanner",
+      "url": "/scanner"
+    },
+    {
+      "name": "Nouvelle intervention",
+      "short_name": "Intervention",
+      "url": "/interventions/nouvelle"
+    }
+  ]
+}
